@@ -558,6 +558,82 @@
     margin-top: 1.5rem;
   }
 
+  .resto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .resto-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.15rem;
+    box-shadow: 0 1px 4px rgba(44,62,45,0.06);
+  }
+
+  .resto-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 4px;
+  }
+
+  .resto-icon {
+    font-size: 16px;
+  }
+
+  .resto-name {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .resto-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .resto-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .resto-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .resto-tag-price {
+    background: var(--green-light);
+    color: var(--green);
+  }
+
+  .resto-tag-reserva {
+    background: var(--coral-light);
+    color: var(--coral);
+  }
+
+  .resto-tag-casual {
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+
+  .city-resto-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+    color: var(--dark);
+  }
+
   footer {
     text-align: center;
     padding: 2rem;
@@ -621,6 +697,9 @@
     .link-placeholder { font-size: 11px; }
 
     footer { font-size: 12px; padding: 1.5rem 1rem; }
+    .resto-grid { grid-template-columns: 1fr; }
+    .resto-name { font-size: 14px; }
+    .resto-desc { font-size: 12px; }
   }
 
   /* Extra small phones */
@@ -718,7 +797,7 @@
       <span class="transport-icon">🚄</span>
       <div class="transport-info">
         <div class="transport-route">London St Pancras → Paris Gare du Nord (Eurostar)</div>
-        <div class="transport-details">Jun 19 · Tren por la mañana · 2h15m · Reservar en eurostar.com</div>
+        <div class="transport-details">Jun 20 · Tren por la mañana · 2h15m · Reservar en eurostar.com</div>
         <a class="ticket-link" href="https://www.eurostar.com" target="_blank">Reservar Eurostar →</a>
       </div>
       <span class="transport-status status-todo">Reservar</span>
@@ -728,7 +807,7 @@
       <span class="transport-icon">✈</span>
       <div class="transport-info">
         <div class="transport-route">Paris CDG → Venice Marco Polo (VCE)</div>
-        <div class="transport-details">Jun 22 · Vuelo por la mañana · 1h40m · Air France directo · 5 pasajeros</div>
+        <div class="transport-details">Jun 23 · Vuelo por la mañana · 1h40m · Air France directo · 5 pasajeros</div>
         <a class="ticket-link" href="https://www.airfrance.com" target="_blank">Reservar Air France →</a>
       </div>
       <span class="transport-status status-todo">Reservar</span>
@@ -738,7 +817,7 @@
       <span class="transport-icon">🚢</span>
       <div class="transport-info">
         <div class="transport-route">Aeropuerto de Venecia → Centro (Alilaguna waterbus)</div>
-        <div class="transport-details">Jun 22 · Al llegar · ~€15/persona · Línea a Piazza San Marco · 1h15m</div>
+        <div class="transport-details">Jun 23 · Al llegar · ~€15/persona · Línea a Piazza San Marco · 1h15m</div>
       </div>
       <span class="transport-status status-pending">Al llegar</span>
     </div>
@@ -831,18 +910,183 @@
 
   </div>
 
+  <!-- RESTAURANTS -->
+  <div class="section-header">
+    <h2 class="section-title">Recomendaciones de Restaurantes</h2>
+    <span class="section-sub">Referencia por ciudad</span>
+  </div>
+
+  <div class="tip-box">
+    <strong>Regla general:</strong> Caminar al menos 5 minutos de cualquier monumento antes de sentarse a comer — cada paso lejos de una atracción turística baja precios y sube calidad. En Italia: desayuno siempre es cappuccino + cornetto parado en la barra, €2-3 total, nunca sentarse en una mesa cerca de un monumento. En Venecia: nunca comer a menos de 200m de la Plaza San Marcos.
+  </div>
+
+  <div class="city-resto-label">🇬🇧 Londres</div>
+  <div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Dishoom</span></div>
+      <div class="resto-desc">Comida india estilo Bombay. Legendario, siempre animado, ideal para familias. Covent Garden.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~£20-25/persona</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Puestos de Borough Market</span></div>
+      <div class="resto-desc">No es restaurante. Comprar comida de varios vendedores. Mejor para almuerzo. Variedad increíble.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~£10-15/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">The Ivy Market Grill</span></div>
+      <div class="resto-desc">Comida británica clásica. Covent Garden. Confiable, buen ambiente.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~£25-35/persona</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Applebee's Fish</span></div>
+      <div class="resto-desc">Fish and chips frescos en Borough Market. Mostrador y mesas. Excelente calidad.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~£15-20/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Cualquier pub auténtico</span></div>
+      <div class="resto-desc">Fish and chips con una pinta. Hacerlo al menos una vez. Preguntar a locales por el pub más cercano no turístico.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~£15-20/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+  </div>
+
+  <div class="city-resto-label">🇫🇷 París</div>
+  <div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Bouillon Chartier</span></div>
+      <div class="resto-desc">Brasserie francesa clásica. Cena completa por menos de €20/persona. Sin reservación, te sientan al instante. Institución legendaria. Cerca de la Ópera.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€15-20/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Calle Rue Cler</span></div>
+      <div class="resto-desc">No es restaurante. Comprar queso, pan, charcutería de los puestos y comer en una banca. El almuerzo más auténtico de París. 7mo arrondissement.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€10-15/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Les Deux Magots</span></div>
+      <div class="resto-desc">Café histórico de Saint-Germain. Hemingway y Picasso venían aquí. Ir por la experiencia y un café o copa de vino.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Medio</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Ladurée</span></div>
+      <div class="resto-desc">Pastelería famosa. Comprar los macarons para llevar. ~€3/pieza. Experiencia parisina innegociable.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€3/pieza</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Cualquier brasserie de barrio</span></div>
+      <div class="resto-desc">Pedir steak frites o duck confit. Vino de la casa. Esto es París en su forma más honesta.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€20-30/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+  </div>
+
+  <div class="city-resto-label">🇮🇹 Venecia</div>
+  <div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Osteria Ai Promessi Sposi</span></div>
+      <div class="resto-desc">Veneciana tradicional. 10 min caminando de San Marco hacia Rialto. Clientela local, precios razonables.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Medio</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Birraria La Corte</span></div>
+      <div class="resto-desc">Buena pizza y comida veneciana. Campo San Polo. Terraza en la plaza.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Medio</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Cicchetti en cualquier bacaro</span></div>
+      <div class="resto-desc">No es restaurante. Pararse en la barra, pedir platillos pequeños (€2-3 c/u) y una copa de vino. El almuerzo auténtico de Venecia.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€8-12/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Al Timon</span></div>
+      <div class="resto-desc">Casual, ambiente joven local. Bote convertido en comedor sobre el canal Ormesini. Cicchetti y bebidas. Donde comen los estudiantes venecianos.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Económico</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Osteria alla Bifora</span></div>
+      <div class="resto-desc">Campo Santa Margherita (barrio universitario). Tradicional con interior peculiar. Buenos cicchetti y vino. Muy buenos precios.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Económico</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+  </div>
+
+  <div class="city-resto-label">🇮🇹 Florencia</div>
+  <div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Mercato Centrale</span></div>
+      <div class="resto-desc">Mercado de comida interior. Planta baja con puestos frescos. Piso superior con comida preparada y asientos. Mejor para almuerzo.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€10-15/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Tavernetta della Signoria</span></div>
+      <div class="resto-desc">Cocina toscana junto a Piazza della Signoria. Consistentemente excelente.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Medio</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Trattoria Mario</span></div>
+      <div class="resto-desc">Cerca del Mercato Centrale. Solo efectivo, mesas compartidas, pasta increíble, solo almuerzo. Uno de los más queridos de Florencia.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Económico</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Il Latini</span></div>
+      <div class="resto-desc">Mesas comunales largas, comida toscana familiar, ruidoso y divertido.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Medio</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Gelateria Perché No</span></div>
+      <div class="resto-desc">LA heladería de Florencia. No saltarse. Ir aquí en vez de cualquier otra cerca del Duomo.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€3-5</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+  </div>
+
+  <div class="city-resto-label">🇮🇹 Roma</div>
+
+  <div class="tip-box">
+    <strong>Las tres pastas de Roma:</strong> Cacio e pepe, carbonara y amatriciana. Comer las tres antes de irse. Caminar al menos 5-10 minutos del Coliseo, Trevi, Panteón y Vaticano antes de sentarse a comer — los restaurantes en zona turística son caros y mediocres sin excepción.
+  </div>
+
+  <div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Osteria da Fortunata</span></div>
+      <div class="resto-desc">Cerca de Piazza Navona. Pasta hecha a mano en la ventana, puedes verlos hacerla. Pedir cacio e pepe. Cena perfecta de última noche.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€20-25/persona</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Pizzarium Bonci</span></div>
+      <div class="resto-desc">Mejor pizza al taglio (por rebanada) de Roma. Via della Meloria, 10 min del Vaticano. Mostrador, sin reservación.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€10-15/persona</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Da Enzo al 29</span></div>
+      <div class="resto-desc">Barrio Trastevere. Trattoria romana tradicional. Pedir carbonara o amatriciana.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Medio</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Tonnarello</span></div>
+      <div class="resto-desc">También Trastevere. Animado, buena comida, gran ambiente. Platos romanos clásicos.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Medio</span><span class="resto-tag resto-tag-reserva">Reservar</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">La Nuova Piazzetta</span></div>
+      <div class="resto-desc">Barrio Monti, 10 min del Coliseo. Mejor carbonara y amatriciana de la zona. Personal amable, postres caseros.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">Medio</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-header"><span class="resto-icon">🍴</span><span class="resto-name">Supplì Roma</span></div>
+      <div class="resto-desc">Comida callejera. Bolas de arroz fritas (supplì) son el snack típico de Roma. Pedir 2-3 cada uno, comer parado. Varias ubicaciones.</div>
+      <div class="resto-tags"><span class="resto-tag resto-tag-price">~€2-3 c/u</span><span class="resto-tag resto-tag-casual">Sin reserva</span></div>
+    </div>
+  </div>
+
   <!-- LONDON -->
   <div class="city-block">
     <div class="section-header">
       <h2 class="section-title">Londres</h2>
-      <span class="section-sub">Jun 17–19 · 2 noches</span>
+      <span class="section-sub">Jun 17–20 · 3 noches</span>
     </div>
 
     <div class="tip-box">
       <strong>Cómo llegar:</strong> Elizabeth Line desde Heathrow al centro de Londres — £10.80/persona, 30 min. No tomar el Heathrow Express (£25/persona, no vale la pena). Consigan una Oyster card o usen contactless al llegar.
     </div>
 
-    <div class="day-label">Día 1 — Mié Jun 17 · Llegada + Inicio tranquilo</div>
+    <div class="day-label">Día 1 — Mar Jun 17 · Llegada + Inicio tranquilo</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -858,17 +1102,9 @@
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Vistas de la Catedral de St Paul's desde el Támesis</div>
         </div>
       </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Cena en Dishoom Covent Garden</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> ~£20-25/persona · Reservar antes · Comida india legendaria</div>
-          <a class="ticket-link" href="https://www.dishoom.com" target="_blank">Reservar →</a>
-        </div>
-      </div>
     </div>
 
-    <div class="day-label">Día 2 — Jue Jun 18 · Día completo en Londres</div>
+    <div class="day-label">Día 2 — Mié Jun 18 · Día completo en Londres</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -906,11 +1142,50 @@
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> La galería es gratis · Ideal para una hora si quieren</div>
         </div>
       </div>
+    </div>
+
+    <div class="day-label">Día 3 — Jue Jun 19 · Barrios + Mercados</div>
+    <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
-          <div class="activity-name">Fish & chips en un pub auténtico</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> ~£15-20/persona · Hay que hacerlo al menos una vez</div>
+          <div class="activity-name">Paseo matutino por Notting Hill</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Casas de colores pastel, Portobello Road, el barrio más fotogénico de Londres. Ir antes de las 10AM.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Portobello Road Market</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Antigüedades, ropa vintage, comida callejera, vendedores locales. Uno de los mejores mercados de Europa.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Hyde Park + Kensington Gardens</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Caminar por el parque, ver la Fuente Memorial Diana, exterior del Palacio Kensington. 2 horas tranquilas.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Exterior del Palacio de Kensington</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Lugar de nacimiento de la Reina Victoria. Los jardines son impresionantes en junio.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Covent Garden por la tarde</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Artistas callejeros, música en vivo, gran ambiente. Mejor al atardecer antes de cenar.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Show en el West End (opcional)</div>
+          <div class="activity-meta"><span class="tag tag-ticket">Boleto</span> Última noche en Londres. Boletos con descuento en TKTS Leicester Square o reservar en línea.</div>
         </div>
       </div>
     </div>
@@ -920,14 +1195,10 @@
   <div class="city-block">
     <div class="section-header">
       <h2 class="section-title">París</h2>
-      <span class="section-sub">Jun 19–22 · 3 noches</span>
+      <span class="section-sub">Jun 20–23 · 3 noches</span>
     </div>
 
-    <div class="tip-box">
-      <strong>Regla de comida:</strong> Caminar al menos 5 minutos de cualquier monumento antes de sentarse a comer. Mejor comida económica: Bouillon Chartier (cena francesa completa por menos de €20/persona). Mejor experiencia de café: pedir un croissant parado en la barra — nunca sentarse en una mesa cerca de un punto turístico.
-    </div>
-
-    <div class="day-label">Día 3 — Vie Jun 19 · Llegada desde Londres</div>
+    <div class="day-label">Día 4 — Vie Jun 20 · Llegada desde Londres</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -936,16 +1207,9 @@
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Solo verla desde abajo. Guardar la subida para mañana temprano.</div>
         </div>
       </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Cena en Bouillon Chartier</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Menos de €20/persona · Brasserie clásica · Sin reservación, asientos rápidos</div>
-        </div>
-      </div>
     </div>
 
-    <div class="day-label">Día 4 — Sáb Jun 20 · Los Íconos</div>
+    <div class="day-label">Día 5 — Sáb Jun 21 · Los Íconos</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -960,13 +1224,6 @@
         <div class="activity-content">
           <div class="activity-name">Trocadéro — mejor vista exterior de la Torre</div>
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Cruzar el río después de la Torre · Punto perfecto para fotos</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Calle Rue Cler — almuerzo tipo picnic</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Queso, pan, charcutería de los puestos · El almuerzo más parisino posible</div>
         </div>
       </div>
       <div class="activity-card" onclick="toggleActivity(this)">
@@ -987,7 +1244,7 @@
       </div>
     </div>
 
-    <div class="day-label">Día 5 — Dom Jun 21 · Historia + Barrios</div>
+    <div class="day-label">Día 6 — Dom Jun 22 · Historia + Barrios</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1007,13 +1264,6 @@
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
-          <div class="activity-name">Île Saint-Louis — helado Berthillon</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> El mejor helado de París · €3-5/bola · Caminar desde Notre Dame</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
           <div class="activity-name">Sainte-Chapelle — vitrales</div>
           <div class="activity-meta"><span class="tag tag-must">Esencial</span> <span class="tag tag-ticket">Boleto</span> ~€13/adulto · Los vitrales más espectaculares del mundo · NO saltarse</div>
           <a class="ticket-link" href="https://www.sainte-chapelle.fr" target="_blank">Comprar Boletos →</a>
@@ -1028,7 +1278,7 @@
       </div>
     </div>
 
-    <div class="day-label">Día 6 — Lun Jun 22 · Mañana y luego vuelo a Venecia</div>
+    <div class="day-label">Día 7 — Lun Jun 23 · Mañana y luego vuelo a Venecia</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1052,14 +1302,14 @@
   <div class="city-block">
     <div class="section-header">
       <h2 class="section-title">Venecia</h2>
-      <span class="section-sub">Jun 22–25 · 3 noches</span>
+      <span class="section-sub">Jun 23–25 · 2 noches</span>
     </div>
 
     <div class="tip-box">
       <strong>La regla de oro:</strong> Nunca comer a menos de 200m de la Plaza San Marcos. Caminar 5 minutos en cualquier dirección — los precios bajan 40%, la calidad se duplica. Como huéspedes con hotel están EXENTOS de la tarifa de €5 para visitantes del día — tengan la reserva del hotel en el celular como prueba.
     </div>
 
-    <div class="day-label">Día 7 — Lun Jun 22 · Llegada desde París</div>
+    <div class="day-label">Día 8 — Lun Jun 23 · Llegada + Primera tarde</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1071,19 +1321,26 @@
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
-          <div class="activity-name">Explorar el barrio, buscar cena</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Cicchetti (tapas venecianas) en un bacaro · €2-3 cada uno · Pedir en la barra</div>
+          <div class="activity-name">Plaza San Marcos al llegar (por la tarde)</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Hermosa a cualquier hora · Vale la pena verla de inmediato</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Primera experiencia de cicchetti en un bacaro</div>
+          <div class="activity-meta"><span class="tag tag-tip">Tip</span> Pedir en la barra como local · Tapas venecianas €2-3 cada una</div>
         </div>
       </div>
     </div>
 
-    <div class="day-label">Día 8 — Mar Jun 23 · Atracciones principales</div>
+    <div class="day-label">Día 9 — Mar Jun 24 · Día completo en Venecia</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
           <div class="activity-name">Plaza San Marcos — 8AM (antes de las multitudes)</div>
-          <div class="activity-meta"><span class="tag tag-tip">Tip</span> Gratis · A las 10AM está llena. A las 8AM es mágica.</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> A las 10AM está llena. A las 8AM es mágica.</div>
         </div>
       </div>
       <div class="activity-card" onclick="toggleActivity(this)">
@@ -1106,71 +1363,39 @@
         <div class="check-circle"></div>
         <div class="activity-content">
           <div class="activity-name">Puente de Rialto + Mercado de Rialto</div>
-          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Ir temprano · Mercado de 1,000 años · Mejor vista del Gran Canal</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Ir a media mañana · Mercado de 1,000 años · Mejor vista del Gran Canal</div>
         </div>
       </div>
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
           <div class="activity-name">Paseo en góndola al atardecer</div>
-          <div class="activity-meta"><span class="tag tag-must">Esencial</span> €80-100/bote (caben 5-6) · Precio regulado · Acercarse a cualquier gondolero después de las 7PM</div>
+          <div class="activity-meta"><span class="tag tag-must">Esencial</span> €80-100/bote (caben 5-6) · Precio regulado · Acercarse a cualquier gondolero después de las 7PM. Innegociable.</div>
         </div>
       </div>
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
-          <div class="activity-name">Cena en Birraria La Corte</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Campo San Polo · Buena pizza + comida veneciana · Reservar antes</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-label">Día 9 — Mié Jun 24 · Islas de Murano y Burano</div>
-    <div class="activities-grid">
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Vaporetto a la isla de Murano</div>
-          <div class="activity-meta"><span class="tag tag-tip">Tip</span> Línea 4.1 desde Fondamente Nove · 20 min · Pase diario vaporetto €9.50/persona</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Demostración de soplado de vidrio en vivo — Murano</div>
-          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Todas las fábricas las hacen por la mañana · Increíble de ver</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Burano — la isla de colores</div>
-          <div class="activity-meta"><span class="tag tag-must">Esencial</span> Línea 12 desde Murano · 45 min · El lugar más colorido del mundo · 2-3 horas</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Almuerzo en Trattoria al Gatto Nero — Burano</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Mejor restaurante de la isla · Mariscos frescos · Reservar con anticipación</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Ponte dell'Accademia al atardecer</div>
-          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Puente de madera · Mejor vista del Gran Canal en la hora dorada · 7PM</div>
+          <div class="activity-name">Ponte dell'Accademia en la hora dorada</div>
+          <div class="activity-meta"><span class="tag tag-free">Gratis</span> Puente de madera · Mejor vista del Gran Canal al atardecer</div>
         </div>
       </div>
     </div>
 
-    <div class="day-label">Día 10 — Jue Jun 25 · Mañana en Venecia → Tren a Florencia</div>
+    <div class="day-label">Día 10 — Mié Jun 25 · Mañana y tren a Florencia</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
-          <div class="activity-name">Último paseo matutino — barrio Dorsoduro</div>
+          <div class="activity-name">Paseo matutino — barrio Dorsoduro</div>
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Zona universitaria · La parte más local y auténtica de Venecia · Calles más tranquilas</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Desayuno italiano parado en la barra</div>
+          <div class="activity-meta"><span class="tag tag-tip">Tip</span> Cappuccino + cornetto · €2-3 total · La experiencia auténtica</div>
         </div>
       </div>
       <div class="activity-card" onclick="toggleActivity(this)">
@@ -1191,10 +1416,11 @@
     </div>
 
     <div class="tip-box">
-      <strong>Hacer hoy:</strong> Reservar la Uffizi y la Accademia en cuanto tengan boletos. Junio se agota semanas antes. Ambas son esenciales — el David es de las cosas más impresionantes que verán. También: desayuno en Italia = cappuccino + cornetto parado en la barra, €2-3 total. Nunca sentarse cerca de un monumento para desayunar.
+      <strong>Hacer hoy:</strong> Reservar la Uffizi y la Accademia en cuanto tengan boletos. Junio se agota semanas antes. Ambas son esenciales — el David es de las cosas más impresionantes que verán.
+    </div>
     </div>
 
-    <div class="day-label">Día 10 cont. — Jue Jun 25 · Llegada desde Venecia</div>
+    <div class="day-label">Día 10 cont. — Mié Jun 25 · Llegada desde Venecia</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1210,16 +1436,9 @@
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Perseo, Rapto de las Sabinas — obras maestras del Renacimiento, al aire libre, gratis</div>
         </div>
       </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Cena en Tavernetta della Signoria</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Junto a la plaza · Excelente comida toscana · Reservar antes</div>
-        </div>
-      </div>
     </div>
 
-    <div class="day-label">Día 11 — Vie Jun 26 · Los Dos Grandes</div>
+    <div class="day-label">Día 11 — Jue Jun 26 · Los Dos Grandes</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1248,13 +1467,6 @@
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
-          <div class="activity-name">Mercato Centrale — almuerzo</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Mercado de comida interior · Puestos en planta baja · €10-15/persona · Gran variedad</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
           <div class="activity-name">Ponte Vecchio</div>
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Famoso puente cubierto de joyerías · Cruzar el Arno</div>
         </div>
@@ -1268,7 +1480,7 @@
       </div>
     </div>
 
-    <div class="day-label">Día 12 — Sáb Jun 27 · Mañana en Florencia → Tren a Roma</div>
+    <div class="day-label">Día 12 — Vie Jun 27 · Mañana en Florencia → Tren a Roma</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1294,11 +1506,7 @@
       <span class="section-sub">Jun 27–30 · 3 noches</span>
     </div>
 
-    <div class="tip-box">
-      <strong>Las tres pastas de Roma:</strong> Cacio e pepe, carbonara, amatriciana. Comer las tres antes de irse. La regla: caminar al menos 5-10 minutos del Coliseo, Trevi, Panteón y Vaticano antes de comer — los restaurantes cercanos a monumentos son caros y mediocres. Barrio Trastevere = mejor comida de Roma.
-    </div>
-
-    <div class="day-label">Día 12 cont. — Sáb Jun 27 · Llegada desde Florencia</div>
+    <div class="day-label">Día 12 cont. — Vie Jun 27 · Llegada desde Florencia</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1322,16 +1530,9 @@
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Hermosa plaza barroca ovalada · Artistas callejeros · No comer en la plaza</div>
         </div>
       </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Cena en el barrio Trastevere</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Da Enzo al 29 o Tonnarello · Calles empedradas · Pedir carbonara</div>
-        </div>
-      </div>
     </div>
 
-    <div class="day-label">Día 13 — Dom Jun 28 · Roma Antigua</div>
+    <div class="day-label">Día 13 — Sáb Jun 28 · Roma Antigua</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1351,13 +1552,6 @@
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
-          <div class="activity-name">Almuerzo en el barrio Monti</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> 10 min del Coliseo · Local, con estilo, no turístico · La Nuova Piazzetta</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
           <div class="activity-name">Cerradura de los Caballeros de Malta — joya escondida</div>
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Colina Aventina · Vista perfecta de la cúpula de San Pedro por una cerradura · Fila de 10 máx</div>
         </div>
@@ -1371,7 +1565,7 @@
       </div>
     </div>
 
-    <div class="day-label">Día 14 — Lun Jun 29 · Día del Vaticano (Último día completo)</div>
+    <div class="day-label">Día 14 — Dom Jun 29 · Día del Vaticano (Último día completo)</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1386,13 +1580,6 @@
         <div class="activity-content">
           <div class="activity-name">Basílica de San Pedro + subir a la Cúpula</div>
           <div class="activity-meta"><span class="tag tag-must">Esencial</span> Basílica gratis · Cúpula €8-10 · La iglesia más grande del mundo · Vistas increíbles</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
-          <div class="activity-name">Pizzarium Bonci — mejor pizza al taglio de Roma</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> 10 min caminando del Vaticano · Via della Meloria · ~€10-15/persona</div>
         </div>
       </div>
       <div class="activity-card" onclick="toggleActivity(this)">
@@ -1413,20 +1600,13 @@
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
-          <div class="activity-name">Última cena — Osteria da Fortunata</div>
-          <div class="activity-meta"><span class="tag tag-food">Comida</span> Cerca de Piazza Navona · Pasta hecha a mano en la ventana · ~€20-25/persona · Última noche en Europa</div>
-        </div>
-      </div>
-      <div class="activity-card" onclick="toggleActivity(this)">
-        <div class="check-circle"></div>
-        <div class="activity-content">
           <div class="activity-name">Fontana di Trevi después de las 10PM</div>
           <div class="activity-meta"><span class="tag tag-free">Gratis</span> Sin tarifa después de las 10PM · Iluminada, menos gente · Momento perfecto de última noche</div>
         </div>
       </div>
     </div>
 
-    <div class="day-label">Día 15 — Mar Jun 30 · Salida</div>
+    <div class="day-label">Día 15 — Lun Jun 30 · Salida</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
