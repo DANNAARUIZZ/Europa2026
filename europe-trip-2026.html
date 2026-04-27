@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Europe 2026 — Family Trip</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --dark: #1a1a18;
+    --teal: #4a9b8e;
+    --teal-light: #e1f0ee;
+    --teal-dark: #2d6b61;
+    --coral: #d4614a;
+    --coral-light: #faeae7;
+    --amber: #c8883a;
+    --amber-light: #faf0e1;
+    --blue: #3a6ea8;
+    --blue-light: #e6eef8;
+    --lavender: #7a6ea8;
+    --lavender-light: #eeecf8;
+    --green: #5a8a4a;
+    --green-light: #eaf2e6;
+    --muted: #6b6b65;
+    --border: rgba(26,26,24,0.12);
+    --card-bg: #ffffff;
+    --page-bg: #f5f0e8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--page-bg);
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 41px
+    );
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-dates {
+    font-size: 16px;
+    color: rgba(245,240,232,0.55);
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--cream);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(245,240,232,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .route-bar {
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    overflow-x: auto;
+  }
+
+  .route-city {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(245,240,232,0.7);
+    white-space: nowrap;
+    padding: 0.25rem 0;
+  }
+
+  .route-city.active {
+    color: var(--teal);
+  }
+
+  .route-arrow {
+    color: rgba(245,240,232,0.2);
+    font-size: 14px;
+    padding: 0 0.5rem;
+  }
+
+  .progress-banner {
+    background: var(--teal-dark);
+    color: white;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.2);
+    border-radius: 100px;
+    height: 6px;
+    width: 160px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: white;
+    border-radius: 100px;
+    transition: width 0.4s ease;
+  }
+
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  .section-sub {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .city-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .city-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .city-flag {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .city-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  .city-dates-tag {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+
+  .activity-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .activity-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(74,155,142,0.1);
+  }
+
+  .activity-card.done {
+    background: var(--teal-light);
+    border-color: var(--teal);
+    opacity: 0.85;
+  }
+
+  .activity-card.done .activity-name {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  .check-circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background: white;
+  }
+
+  .activity-card.done .check-circle {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .check-circle::after {
+    content: '';
+    width: 6px;
+    height: 10px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .activity-card.done .check-circle::after {
+    opacity: 1;
+  }
+
+  .activity-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .activity-name {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    transition: all 0.2s;
+  }
+
+  .activity-meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    line-height: 1.5;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-must {
+    background: var(--coral-light);
+    color: var(--coral);
+  }
+
+  .tag-food {
+    background: var(--amber-light);
+    color: var(--amber);
+  }
+
+  .tag-free {
+    background: var(--green-light);
+    color: var(--green);
+  }
+
+  .tag-ticket {
+    background: var(--lavender-light);
+    color: var(--lavender);
+  }
+
+  .tag-tip {
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+
+  .ticket-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--teal-dark);
+    text-decoration: none;
+    padding: 3px 9px;
+    border: 1px solid var(--teal);
+    border-radius: 4px;
+    margin-top: 6px;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+
+  .ticket-link:hover {
+    background: var(--teal);
+    color: white;
+  }
+
+  .transport-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.15rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .transport-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 2px 12px rgba(58,110,168,0.08);
+  }
+
+  .transport-card.done {
+    background: var(--blue-light);
+    border-color: var(--blue);
+    opacity: 0.85;
+  }
+
+  .transport-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .transport-info {
+    flex: 1;
+  }
+
+  .transport-route {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .transport-details {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  .transport-status {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .status-booked {
+    background: var(--green-light);
+    color: var(--green);
+  }
+
+  .status-pending {
+    background: var(--amber-light);
+    color: var(--amber);
+  }
+
+  .status-todo {
+    background: var(--coral-light);
+    color: var(--coral);
+  }
+
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .doc-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.15rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .doc-card:hover {
+    border-color: var(--lavender);
+    box-shadow: 0 2px 12px rgba(122,110,168,0.1);
+  }
+
+  .doc-card.done {
+    background: var(--lavender-light);
+    border-color: var(--lavender);
+  }
+
+  .doc-icon {
+    font-size: 22px;
+    margin-bottom: 0.5rem;
+  }
+
+  .doc-name {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .doc-meta {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--lavender);
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid var(--lavender);
+    padding: 3px 9px;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+
+  .doc-link:hover {
+    background: var(--lavender);
+    color: white;
+  }
+
+  .link-placeholder {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    border: 1px dashed var(--border);
+    padding: 3px 9px;
+    border-radius: 4px;
+    cursor: default;
+  }
+
+  .tip-box {
+    background: var(--amber-light);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 0.85rem 1.15rem;
+    margin-bottom: 1.25rem;
+    font-size: 14px;
+    color: #5a3e10;
+    line-height: 1.6;
+  }
+
+  .tip-box strong {
+    font-weight: 500;
+  }
+
+  .day-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 2rem 1rem 1.5rem; }
+    .stats-row { gap: 1.5rem; }
+    .route-bar { padding: 0.75rem 1rem; }
+    .main { padding: 1.5rem 1rem 3rem; }
+    .activities-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Family of 5 — Summer 2026</div>
+  <h1>Europe Trip</h1>
+  <div class="hero-dates">Jun 17 – Jun 30, 2026 &nbsp;·&nbsp; 13 nights</div>
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-num">5</span>
+      <span class="stat-label">Cities</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">13</span>
+      <span class="stat-label">Nights</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="done-count">0</span>
+      <span class="stat-label">Done</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="total-count">0</span>
+      <span class="stat-label">Activities</span>
+    </div>
+  </div>
+</div>
+
+<div class="route-bar">
+  <span class="route-city active">PHX</span>
+  <span class="route-arrow">→</span>
+  <span class="route-city">London</span>
+  <span class="route-arrow">→</span>
+  <span class="route-city">Paris</span>
+  <span class="route-arrow">→</span>
+  <span class="route-city">Venice</span>
+  <span class="route-arrow">→</span>
+  <span class="route-city">Florence</span>
+  <span class="route-arrow">→</span>
+  <span class="route-city">Rome</span>
+  <span class="route-arrow">→</span>
+  <span class="route-city active">PHX</span>
+</div>
+
+<div class="progress-banner">
+  <span id="progress-text">0 of 0 activities checked off</span>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- FLIGHTS & TRANSPORT -->
+  <div class="section-header">
+    <h2 class="section-title">Flights & Transport</h2>
+    <span class="section-sub">All legs of the journey</span>
+  </div>
+
+  <div id="transport-list">
+
+    <div class="transport-card done" onclick="toggleTransport(this)">
+      <span class="transport-icon">✈</span>
+      <div class="transport-info">
+        <div class="transport-route">PHX → London Heathrow (LHR)</div>
+        <div class="transport-details">Jun 16 · 4:40PM · Nonstop 10h10m · American / British Airways · 5 passengers</div>
+        <a class="ticket-link" href="#" target="_blank">+ Add confirmation link</a>
+      </div>
+      <span class="transport-status status-booked">Booked</span>
+    </div>
+
+    <div class="transport-card done" onclick="toggleTransport(this)">
+      <span class="transport-icon">✈</span>
+      <div class="transport-info">
+        <div class="transport-route">Rome Fiumicino (FCO) → PHX</div>
+        <div class="transport-details">Jun 30 · 11:05AM · Via JFK 17h50m · American / British Airways · 5 passengers</div>
+        <a class="ticket-link" href="#" target="_blank">+ Add confirmation link</a>
+      </div>
+      <span class="transport-status status-booked">Booked</span>
+    </div>
+
+    <div class="transport-card" onclick="toggleTransport(this)">
+      <span class="transport-icon">🚄</span>
+      <div class="transport-info">
+        <div class="transport-route">London St Pancras → Paris Gare du Nord (Eurostar)</div>
+        <div class="transport-details">Jun 19 · Morning train · 2h15m · Book at eurostar.com</div>
+        <a class="ticket-link" href="https://www.eurostar.com" target="_blank">Book Eurostar →</a>
+      </div>
+      <span class="transport-status status-todo">Book Now</span>
+    </div>
+
+    <div class="transport-card" onclick="toggleTransport(this)">
+      <span class="transport-icon">✈</span>
+      <div class="transport-info">
+        <div class="transport-route">Paris CDG → Venice Marco Polo (VCE)</div>
+        <div class="transport-details">Jun 22 · Morning flight · 1h40m · Air France nonstop · 5 passengers</div>
+        <a class="ticket-link" href="https://www.airfrance.com" target="_blank">Book Air France →</a>
+      </div>
+      <span class="transport-status status-todo">Book Now</span>
+    </div>
+
+    <div class="transport-card" onclick="toggleTransport(this)">
+      <span class="transport-icon">🚢</span>
+      <div class="transport-info">
+        <div class="transport-route">Venice Airport → City Center (Alilaguna waterbus)</div>
+        <div class="transport-details">Jun 22 · On arrival · ~€15/person · Line to Piazza San Marco · 1h15m</div>
+      </div>
+      <span class="transport-status status-pending">On Arrival</span>
+    </div>
+
+    <div class="transport-card" onclick="toggleTransport(this)">
+      <span class="transport-icon">🚄</span>
+      <div class="transport-info">
+        <div class="transport-route">Venice Santa Lucia → Florence SMN (Frecciarossa)</div>
+        <div class="transport-details">Jun 25 · 8 or 9AM · 2h05m direct · Book at trenitalia.com · ~€20-40/person</div>
+        <a class="ticket-link" href="https://www.trenitalia.com" target="_blank">Book Trenitalia →</a>
+      </div>
+      <span class="transport-status status-todo">Book Now</span>
+    </div>
+
+    <div class="transport-card" onclick="toggleTransport(this)">
+      <span class="transport-icon">🚄</span>
+      <div class="transport-info">
+        <div class="transport-route">Florence SMN → Rome Termini (Frecciarossa)</div>
+        <div class="transport-details">Jun 27 · 10 or 11AM · 1h20m direct · Book at trenitalia.com · ~€15-35/person</div>
+        <a class="ticket-link" href="https://www.trenitalia.com" target="_blank">Book Trenitalia →</a>
+      </div>
+      <span class="transport-status status-todo">Book Now</span>
+    </div>
+
+    <div class="transport-card" onclick="toggleTransport(this)">
+      <span class="transport-icon">🚄</span>
+      <div class="transport-info">
+        <div class="transport-route">Rome Termini → Fiumicino Airport (Leonardo Express)</div>
+        <div class="transport-details">Jun 30 · 7:00AM train · 32 min · €14/person · DO NOT miss this</div>
+        <a class="ticket-link" href="https://www.trenitalia.com" target="_blank">Book Leonardo Express →</a>
+      </div>
+      <span class="transport-status status-todo">Book Now</span>
+    </div>
+
+  </div>
+
+  <!-- DOCUMENTS & VISAS -->
+  <div class="section-header">
+    <h2 class="section-title">Documents & Visas</h2>
+    <span class="section-sub">Required before travel</span>
+  </div>
+
+  <div class="tip-box">
+    <strong>Reminder:</strong> UK ETA is required for Mexican passport holders. Apply now at gov.uk — $26.50/person official fee. Do NOT use third-party sites — they charge an extra $12/person.
+  </div>
+
+  <div class="docs-grid">
+
+    <div class="doc-card" onclick="toggleDoc(this)">
+      <div class="doc-icon">🛂</div>
+      <div class="doc-name">UK ETA — Passenger 1</div>
+      <div class="doc-meta">Required · $26.50 · gov.uk</div>
+      <a class="doc-link" href="https://www.gov.uk/get-electronic-travel-authorisation" target="_blank">Apply →</a>
+    </div>
+
+    <div class="doc-card" onclick="toggleDoc(this)">
+      <div class="doc-icon">🛂</div>
+      <div class="doc-name">UK ETA — Passenger 2</div>
+      <div class="doc-meta">Required · $26.50 · gov.uk</div>
+      <a class="doc-link" href="https://www.gov.uk/get-electronic-travel-authorisation" target="_blank">Apply →</a>
+    </div>
+
+    <div class="doc-card" onclick="toggleDoc(this)">
+      <div class="doc-icon">🛂</div>
+      <div class="doc-name">UK ETA — Passenger 3</div>
+      <div class="doc-meta">Required · $26.50 · gov.uk</div>
+      <a class="doc-link" href="https://www.gov.uk/get-electronic-travel-authorisation" target="_blank">Apply →</a>
+    </div>
+
+    <div class="doc-card" onclick="toggleDoc(this)">
+      <div class="doc-icon">🛂</div>
+      <div class="doc-name">UK ETA — Passenger 4</div>
+      <div class="doc-meta">Required · $26.50 · gov.uk</div>
+      <a class="doc-link" href="https://www.gov.uk/get-electronic-travel-authorisation" target="_blank">Apply →</a>
+    </div>
+
+    <div class="doc-card" onclick="toggleDoc(this)">
+      <div class="doc-icon">🛂</div>
+      <div class="doc-name">UK ETA — Passenger 5</div>
+      <div class="doc-meta">Required · $26.50 · gov.uk</div>
+      <a class="doc-link" href="https://www.gov.uk/get-electronic-travel-authorisation" target="_blank">Apply →</a>
+    </div>
+
+    <div class="doc-card" onclick="toggleDoc(this)">
+      <div class="doc-icon">💳</div>
+      <div class="doc-name">Chase Sapphire Preferred</div>
+      <div class="doc-meta">Primary card · 2x travel points · Full trip protection</div>
+      <span class="link-placeholder">Use for all bookings</span>
+    </div>
+
+  </div>
+
+  <!-- LONDON -->
+  <div class="city-block">
+    <div class="section-header">
+      <h2 class="section-title">London</h2>
+      <span class="section-sub">Jun 17–19 · 2 nights</span>
+    </div>
+
+    <div class="tip-box">
+      <strong>Getting there:</strong> Elizabeth Line from Heathrow to central London — £10.80/person, 30 min. Skip the Heathrow Express (£25/person, not worth it). Get an Oyster card or use contactless on arrival.
+    </div>
+
+    <div class="day-label">Day 1 — Wed Jun 17 · Arrival + Easy Start</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Borough Market — lunch & explore</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> London Bridge area · Best food market in London</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">South Bank walk + Millennium Bridge</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Views of St Paul's Cathedral from the Thames</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Dinner at Dishoom Covent Garden</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> ~£20-25/person · Book ahead · Legendary Indian food</div>
+          <a class="ticket-link" href="https://www.dishoom.com" target="_blank">Reserve →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 2 — Thu Jun 18 · Full London Day</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Tower of London</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~£34/adult · Book in advance · Crown Jewels</div>
+          <a class="ticket-link" href="https://www.hrp.org.uk/tower-of-london/" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Tower Bridge walk</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Just walk across — the iconic two-tower bridge</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Westminster Bridge → Big Ben → St James's Park</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> The classic London walk · 2 hours leisurely</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Buckingham Palace</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Exterior · Changing of Guard 10:45AM Mon/Wed/Fri/Sun</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Trafalgar Square + National Gallery</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Gallery is free · Great for an hour if desired</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Fish & chips at a proper pub</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> ~£15-20/person · Do it at least once</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARIS -->
+  <div class="city-block">
+    <div class="section-header">
+      <h2 class="section-title">Paris</h2>
+      <span class="section-sub">Jun 19–22 · 3 nights</span>
+    </div>
+
+    <div class="tip-box">
+      <strong>Food rule:</strong> Walk at least 5 minutes from any landmark before sitting down to eat. Best budget meals: Bouillon Chartier (full French dinner under €20/person). Best café experience: grab a croissant standing at a counter — never sit at a table near a tourist spot.
+    </div>
+
+    <div class="day-label">Day 3 — Fri Jun 19 · Arrival from London</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Eiffel Tower — first view from Champ de Mars park</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Just see it from below. Save the climb for tomorrow morning.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Dinner at Bouillon Chartier</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Under €20/person · Classic brasserie · No reservations, quick seating</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 4 — Sat Jun 20 · The Icons</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Eiffel Tower — timed entry climb</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~€29/adult · 8:30AM · Book NOW</div>
+          <a class="ticket-link" href="https://ticket.toureiffel.paris" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Trocadéro — best exterior view of the Tower</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Cross the river after Tower visit · Perfect photo spot</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Rue Cler market street — picnic lunch</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Cheese, bread, charcuterie from stalls · Most Parisian lunch possible</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Musée d'Orsay (optional)</div>
+          <div class="activity-meta"><span class="tag tag-ticket">Ticket</span> ~€16/adult · Van Gogh, Monet, Renoir · Book at musee-orsay.fr</div>
+          <a class="ticket-link" href="https://www.musee-orsay.fr/en/visit/practical-information/ticketing" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Seine River Cruise at sunset</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> ~€15/adult · Bateaux Mouches · 1 hour · Book ahead</div>
+          <a class="ticket-link" href="https://www.bateaux-mouches.fr" target="_blank">Book Cruise →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 5 — Sun Jun 21 · History + Neighborhoods</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Louvre — timed entry</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> €32/adult · Mona Lisa, Venus de Milo, Winged Victory · 2h max</div>
+          <a class="ticket-link" href="https://billetterie.louvre.fr" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Notre Dame Cathedral</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Newly reopened after 2019 fire · Stunning interior</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Île Saint-Louis — Berthillon ice cream</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Best ice cream in Paris · €3-5/scoop · Walk from Notre Dame</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Sainte-Chapelle — stained glass</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~€13/adult · Most spectacular stained glass in the world · Do NOT skip</div>
+          <a class="ticket-link" href="https://www.sainte-chapelle.fr" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Montmartre + Sacré-Cœur</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Best free panoramic view of Paris · Go at sunset</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 6 — Mon Jun 22 · Morning then fly to Venice</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Arc de Triomphe — climb to the top</div>
+          <div class="activity-meta"><span class="tag tag-ticket">Ticket</span> ~€13/adult · Best 360° view of Paris · Book at monuments-nationaux.fr</div>
+          <a class="ticket-link" href="https://www.paris-arc-de-triomphe.fr" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Walk the Champs-Élysées</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Walk it, don't eat here · Head to CDG airport after</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENICE -->
+  <div class="city-block">
+    <div class="section-header">
+      <h2 class="section-title">Venice</h2>
+      <span class="section-sub">Jun 22–25 · 3 nights</span>
+    </div>
+
+    <div class="tip-box">
+      <strong>The golden rule:</strong> Never eat within 200m of St Mark's Square. Walk 5 minutes in any direction — prices drop 40%, quality doubles. As overnight guests you are EXEMPT from the €5 day-tripper entry fee — keep your hotel booking on your phone as proof.
+    </div>
+
+    <div class="day-label">Day 7 — Mon Jun 22 · Arrival from Paris</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Waterbus (Alilaguna) arrival into the city</div>
+          <div class="activity-meta"><span class="tag tag-tip">Tip</span> ~€15/person · Line to San Marco · 1h15m · The best arrival in the world</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Explore the neighborhood, find dinner</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Cicchetti (Venetian tapas) at a bacaro · €2-3 each · Order at the bar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 8 — Tue Jun 23 · Main Attractions</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">St Mark's Square — 8AM (before crowds)</div>
+          <div class="activity-meta"><span class="tag tag-tip">Tip</span> Free · By 10AM it's packed. By 8AM it's magical.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">St Mark's Basilica</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~€3 skip-the-line · Gold mosaic interior · Nothing like it anywhere</div>
+          <a class="ticket-link" href="https://www.basilicasanmarco.it" target="_blank">Book Entry →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Doge's Palace</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~€30/adult · Includes Bridge of Sighs view · Book at coopculture.it</div>
+          <a class="ticket-link" href="https://www.coopculture.it" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Rialto Bridge + Rialto Market</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Go early morning · 1,000 year old market · Best Grand Canal view</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Gondola ride at sunset</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> €80-100/boat (fits 5-6) · City-regulated price · Walk up to any gondolier after 7PM</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Dinner at Birraria La Corte</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Campo San Polo · Great pizza + Venetian food · Book ahead</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 9 — Wed Jun 24 · Islands of Murano & Burano</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Vaporetto to Murano island</div>
+          <div class="activity-meta"><span class="tag tag-tip">Tip</span> Line 4.1 from Fondamente Nove · 20 min · Day vaporetto pass €9.50/person</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Live glassblowing demonstration — Murano</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> All the factories do them all morning · Incredible to watch</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Burano — the colorful island</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> Line 12 from Murano · 45 min · Most colorful place in the world · 2-3 hours</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Lunch at Trattoria al Gatto Nero — Burano</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Best restaurant on the island · Fresh seafood · Book in advance</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Ponte dell'Accademia at sunset</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Wooden bridge · Best view of Grand Canal at golden hour · 7PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 10 — Thu Jun 25 · Morning in Venice → Train to Florence</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Final morning walk — Dorsoduro neighborhood</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> University area · Most local + authentic part of Venice · Quieter streets</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Frecciarossa to Florence — 8 or 9AM</div>
+          <div class="activity-meta"><span class="tag tag-tip">Tip</span> Venice Santa Lucia → Florence SMN · 2h05m direct · Book at trenitalia.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLORENCE -->
+  <div class="city-block">
+    <div class="section-header">
+      <h2 class="section-title">Florence</h2>
+      <span class="section-sub">Jun 25–27 · 2 nights</span>
+    </div>
+
+    <div class="tip-box">
+      <strong>Must do today:</strong> Book the Uffizi and Accademia the moment you get tickets. June sells out weeks ahead. Both are essential — the David is one of the most moving things you'll ever see. Also: breakfast in Italy = cappuccino + cornetto standing at a bar, €2-3 total. Never sit down near a landmark for breakfast.
+    </div>
+
+    <div class="day-label">Day 10 cont'd — Thu Jun 25 · Arrival from Venice</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">First look at the Duomo exterior</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> 10 min walk from station · The marble facade stops you dead</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Piazza della Signoria — outdoor sculpture gallery</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Perseus, Rape of the Sabines — genuine Renaissance masterpieces, outdoors, free</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Dinner at Tavernetta della Signoria</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Right off the square · Excellent Tuscan food · Book ahead</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 11 — Fri Jun 26 · The Big Two</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Accademia Gallery — Michelangelo's David</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~€16/adult · Open at 8AM · Go first · Book now</div>
+          <a class="ticket-link" href="https://www.galleriaaccademia.it/en/visit" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Uffizi Gallery</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~€25/adult · Birth of Venus, Primavera · 1.5-2h max · Book now</div>
+          <a class="ticket-link" href="https://www.uffizi.it/en/the-uffizi/tickets" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Duomo complex — Bell Tower climb</div>
+          <div class="activity-meta"><span class="tag tag-ticket">Ticket</span> ~€30 combined · Climb the Bell Tower (not dome) — you can see the dome from it</div>
+          <a class="ticket-link" href="https://www.duomo.firenze.it/en/visit" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Mercato Centrale — lunch</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Indoor food market · Ground floor stalls · €10-15/person · Great variety</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Ponte Vecchio</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Famous bridge covered in jewelry shops · Walk across the Arno</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Piazzale Michelangelo — sunset panorama</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> 20 min uphill walk or bus 12/13 · Best view of Florence · Go late afternoon</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 12 — Sat Jun 27 · Morning in Florence → Train to Rome</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Oltrarno neighborhood morning walk</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> South of the Arno · More local, less touristy · Artisan workshops</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Frecciarossa to Rome — 10 or 11AM</div>
+          <div class="activity-meta"><span class="tag tag-tip">Tip</span> Florence SMN → Roma Termini · 1h20m direct · Book at trenitalia.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROME -->
+  <div class="city-block">
+    <div class="section-header">
+      <h2 class="section-title">Rome</h2>
+      <span class="section-sub">Jun 27–30 · 3 nights</span>
+    </div>
+
+    <div class="tip-box">
+      <strong>The three pastas of Rome:</strong> Cacio e pepe, carbonara, amatriciana. Eat all three before you leave. The rule: walk at least 5-10 minutes from the Colosseum, Trevi, Pantheon, and Vatican before eating — tourist-adjacent restaurants are overpriced and mediocre. Trastevere neighborhood = best food in Rome.
+    </div>
+
+    <div class="day-label">Day 12 cont'd — Sat Jun 27 · Arrival from Florence</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Trevi Fountain (afternoon)</div>
+          <div class="activity-meta"><span class="tag tag-tip">Tip</span> €2 basin fee 9AM-10PM · Throw your coin · Come back after 10PM free + lit up</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Pantheon</div>
+          <div class="activity-meta"><span class="tag tag-ticket">Ticket</span> ~€5/adult · Book at pantheonroma.com · 2,000 year old dome with open oculus</div>
+          <a class="ticket-link" href="https://www.pantheonroma.com/en/home/" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Piazza Navona</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Beautiful baroque oval square · Street performers · Don't eat on the square</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Dinner in Trastevere neighborhood</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Da Enzo al 29 or Tonnarello · Cobblestone streets · Order carbonara</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 13 — Sun Jun 28 · Ancient Rome</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Colosseum</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~€18/adult · Book NOW at coopculture.it · 8AM opening · 1.5h</div>
+          <a class="ticket-link" href="https://www.coopculture.it/en/colosseo" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Roman Forum + Palatine Hill</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> Included with Colosseum ticket · Walk where the Roman Empire was ruled</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Lunch in Monti neighborhood</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> 10 min from Colosseum · Local, stylish, not touristy · La Nuova Piazzetta</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Knights of Malta Keyhole — hidden gem</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Aventine Hill · Perfect framed view of St Peter's dome through a keyhole · Queue of 10 max</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Gianicolo Hill — best free view of Rome</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> 360° panorama · Bus from Trastevere · More impressive than paid viewpoints</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 14 — Mon Jun 29 · Vatican Day (Last Full Day)</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Vatican Museums + Sistine Chapel</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~€17/adult · Book NOW — sells out fastest · Go 8AM · 2.5-3h</div>
+          <a class="ticket-link" href="https://tickets.museivaticani.va/en/tickets" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">St Peter's Basilica + Dome climb</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> Basilica free · Dome €8-10 · Largest church in the world · Stunning views of Vatican City</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Pizzarium Bonci — best pizza al taglio in Rome</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> 10 min walk from Vatican · Via della Meloria · ~€10-15/person for a feast</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Castel Sant'Angelo</div>
+          <div class="activity-meta"><span class="tag tag-ticket">Ticket</span> ~€15/adult · Right next to Vatican · Incredible Tiber River views · Book at coopculture.it</div>
+          <a class="ticket-link" href="https://www.coopculture.it" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Spanish Steps</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Climb all 135 steps · Don't eat nearby · Great people watching</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Final dinner — Osteria da Fortunata</div>
+          <div class="activity-meta"><span class="tag tag-food">Food</span> Near Piazza Navona · Handmade pasta in the window · ~€20-25/person · Last night in Europe</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Trevi Fountain after 10PM</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> No fee after 10PM · Lit up, fewer crowds · Perfect last night moment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 15 — Tue Jun 30 · Departure</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Leonardo Express to FCO — 7:00AM</div>
+          <div class="activity-meta"><span class="tag tag-must">Must</span> Roma Termini → Fiumicino · 32 min · €14/person · Leave hotel by 6:30AM — set two alarms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Europe Trip 2026 &nbsp;·&nbsp; Family Tracker &nbsp;·&nbsp; Built with Owen
+</footer>
+
+<script>
+  function toggleActivity(card) {
+    card.classList.toggle('done');
+    updateProgress();
+    saveState();
+  }
+
+  function toggleTransport(card) {
+    const currentStatus = card.querySelector('.transport-status');
+    if (!currentStatus) return;
+    card.classList.toggle('done');
+    saveState();
+  }
+
+  function toggleDoc(card) {
+    card.classList.toggle('done');
+    saveState();
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.activity-card');
+    const done = document.querySelectorAll('.activity-card.done');
+    const total = all.length;
+    const doneCount = done.length;
+    const pct = total > 0 ? Math.round((doneCount / total) * 100) : 0;
+
+    document.getElementById('done-count').textContent = doneCount;
+    document.getElementById('total-count').textContent = total;
+    document.getElementById('progress-text').textContent = doneCount + ' of ' + total + ' activities checked off';
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  function saveState() {
+    try {
+      const activityStates = [];
+      document.querySelectorAll('.activity-card').forEach((c, i) => {
+        activityStates.push(c.classList.contains('done'));
+      });
+
+      const transportStates = [];
+      document.querySelectorAll('.transport-card').forEach((c, i) => {
+        transportStates.push(c.classList.contains('done'));
+      });
+
+      const docStates = [];
+      document.querySelectorAll('.doc-card').forEach((c, i) => {
+        docStates.push(c.classList.contains('done'));
+      });
+
+      localStorage.setItem('europe2026_activities', JSON.stringify(activityStates));
+      localStorage.setItem('europe2026_transport', JSON.stringify(transportStates));
+      localStorage.setItem('europe2026_docs', JSON.stringify(docStates));
+    } catch(e) {}
+  }
+
+  function loadState() {
+    try {
+      const actStates = JSON.parse(localStorage.getItem('europe2026_activities') || '[]');
+      document.querySelectorAll('.activity-card').forEach((c, i) => {
+        if (actStates[i]) c.classList.add('done');
+      });
+
+      const transStates = JSON.parse(localStorage.getItem('europe2026_transport') || '[]');
+      document.querySelectorAll('.transport-card').forEach((c, i) => {
+        if (transStates[i]) c.classList.add('done');
+      });
+
+      const docStates = JSON.parse(localStorage.getItem('europe2026_docs') || '[]');
+      document.querySelectorAll('.doc-card').forEach((c, i) => {
+        if (docStates[i]) c.classList.add('done');
+      });
+    } catch(e) {}
+  }
+
+  loadState();
+  updateProgress();
+</script>
+
+</body>
+</html>
