@@ -634,6 +634,44 @@
     color: var(--dark);
   }
 
+  .city-collapse {
+    margin-bottom: 2.5rem;
+  }
+
+  .city-collapse summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 2.5rem 0 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid rgba(44,62,45,0.1);
+    user-select: none;
+  }
+
+  .city-collapse summary::-webkit-details-marker { display: none; }
+
+  .city-collapse summary::before {
+    content: '▸';
+    font-size: 1rem;
+    color: var(--teal);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .city-collapse[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .city-collapse summary .section-title {
+    margin: 0;
+  }
+
+  .city-collapse summary:hover .section-title {
+    color: var(--teal);
+  }
+
   footer {
     text-align: center;
     padding: 2rem;
@@ -1089,11 +1127,12 @@
   </div>
 
   <!-- LONDON -->
-  <div class="city-block">
-    <div class="section-header">
+  <details class="city-collapse" open>
+    <summary>
       <h2 class="section-title">Londres</h2>
       <span class="section-sub">Jun 17–20 · 3 noches</span>
-    </div>
+    </summary>
+  <div class="city-block">
 
     <div class="tip-box">
       <strong>Cómo llegar:</strong> Elizabeth Line desde Heathrow al centro de Londres — £10.80/persona, 30 min. No tomar el Heathrow Express (£25/persona, no vale la pena). Consigan una Oyster card o usen contactless al llegar.
@@ -1255,13 +1294,15 @@
       </div>
     </div>
   </div>
+  </details>
 
   <!-- PARIS -->
-  <div class="city-block">
-    <div class="section-header">
+  <details class="city-collapse" open>
+    <summary>
       <h2 class="section-title">París</h2>
       <span class="section-sub">Jun 20–23 · 3 noches</span>
-    </div>
+    </summary>
+  <div class="city-block">
 
     <div class="day-label">Día 4 — Sáb Jun 20 · Llegada a París</div>
     <div class="activities-grid" style="grid-template-columns: 1fr;">
@@ -1526,13 +1567,15 @@
       </div>
     </div>
   </div>
+  </details>
 
   <!-- VENICE -->
-  <div class="city-block">
-    <div class="section-header">
+  <details class="city-collapse" open>
+    <summary>
       <h2 class="section-title">Venecia</h2>
       <span class="section-sub">Jun 23–25 · 2 noches</span>
-    </div>
+    </summary>
+  <div class="city-block">
 
     <div class="tip-box">
       <strong>La regla de oro:</strong> Nunca comer a menos de 200m de la Plaza San Marcos. Caminar 5 minutos en cualquier dirección — los precios bajan 40%, la calidad se duplica. Como huéspedes con hotel están EXENTOS de la tarifa de €5 para visitantes del día — tengan la reserva del hotel en el celular como prueba.
@@ -1705,13 +1748,15 @@
       </div>
     </div>
   </div>
+  </details>
 
   <!-- FLORENCE -->
-  <div class="city-block">
-    <div class="section-header">
+  <details class="city-collapse" open>
+    <summary>
       <h2 class="section-title">Florencia</h2>
       <span class="section-sub">Jun 25–27 · 2 noches</span>
-    </div>
+    </summary>
+  <div class="city-block">
 
     <div class="tip-box">
       <strong>Hacer hoy:</strong> Reservar la Uffizi y la Accademia en cuanto tengan boletos. Junio se agota semanas antes. Ambas son esenciales — el David es de las cosas más impresionantes que verán.
@@ -1869,13 +1914,15 @@
       </div>
     </div>
   </div>
+  </details>
 
   <!-- ROME -->
-  <div class="city-block">
-    <div class="section-header">
+  <details class="city-collapse" open>
+    <summary>
       <h2 class="section-title">Roma</h2>
       <span class="section-sub">Jun 27–30 · 3 noches</span>
-    </div>
+    </summary>
+  <div class="city-block">
 
     <div class="day-label">Día 11 cont. — Sáb Jun 27 · Llegada a Roma</div>
     <div class="activities-grid" style="grid-template-columns: 1fr;">
@@ -2194,6 +2241,7 @@
       </div>
     </div>
   </div>
+  </details>
 
 </div>
 
