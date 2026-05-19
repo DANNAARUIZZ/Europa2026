@@ -352,6 +352,11 @@
     color: var(--lavender);
   }
 
+  .tag-transport {
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+
   .tag-tip {
     background: var(--blue-light);
     color: var(--blue);
@@ -702,6 +707,23 @@
 
   </div>
 
+  <!-- HOTELS -->
+  <div class="section-header">
+    <h2 class="section-title">Hotels</h2>
+    <span class="section-sub">Home base details for the trip</span>
+  </div>
+
+  <div class="transport-card">
+    <span class="transport-icon">🏨</span>
+    <div class="transport-info">
+      <div class="transport-route">Tower Suites by Blue Orchid — Londres</div>
+      <div class="transport-details">Jun 17–21 · 4 noches · Tower Bridge</div>
+      <div class="transport-details">4 St Katharine's Way, London E1W 1LD · Reservación en Expedia</div>
+      <a class="ticket-link" href="https://maps.google.com/?q=Tower+Suites+by+Blue+Orchid+London+4+St+Katharines+Way" target="_blank">Ver en Google Maps →</a>
+    </div>
+    <span class="transport-status status-booked">Booked</span>
+  </div>
+
   <!-- DOCUMENTS & VISAS -->
   <div class="section-header">
     <h2 class="section-title">Documents & Visas</h2>
@@ -762,7 +784,7 @@
   <div class="city-block">
     <div class="section-header">
       <h2 class="section-title">London</h2>
-      <span class="section-sub">Jun 17–19 · 2 nights</span>
+      <span class="section-sub">Jun 17–21 · 4 nights</span>
     </div>
 
     <div class="tip-box">
@@ -771,6 +793,14 @@
 
     <div class="day-label">Day 1 — Wed Jun 17 · Arrival + Easy Start</div>
     <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">Llegada al hotel desde Heathrow</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> ~2:00PM — Después de customs, tomar la Elizabeth Line dirección central London. Tocar con tarjeta contactless, ~£10.80/persona, 30 minutos. Bajar en Tower Hill — la estación está cruzando la calle del hotel. Caminar 2 minutos hasta 4 St Katharine's Way. Hacer check in y dejar maletas. El hotel está junto a Tower Bridge y la Torre de Londres — primera impresión desde la habitación.</div>
+          <a class="ticket-link" href="https://maps.google.com/?q=Tower+Suites+by+Blue+Orchid+London" target="_blank">Cómo llegar →</a>
+        </div>
+      </div>
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
@@ -800,9 +830,39 @@
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
         <div class="activity-content">
+          <div class="activity-name">9:00AM — Torre de Londres</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde el hotel caminar 2 minutos — la Torre de Londres está literalmente a la vuelta de la esquina. Salir por la puerta principal, girar a la izquierda por St Katharine's Way y la entrada está frente a ti. Es la actividad más conveniente del viaje — hotel y atracción puerta con puerta.</div>
+          <a class="ticket-link" href="https://maps.google.com/?q=Tower+of+London+London+EC3N+4AB" target="_blank">Cómo llegar →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
           <div class="activity-name">Tower of London</div>
           <div class="activity-meta"><span class="tag tag-must">Must</span> <span class="tag tag-ticket">Ticket</span> ~£34/adult · Book in advance · Crown Jewels</div>
           <a class="ticket-link" href="https://www.hrp.org.uk/tower-of-london/" target="_blank">Buy Tickets →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">12:10PM — Tower Bridge Exhibition</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde la Torre de Londres caminar 5 minutos hacia el este por Tower Bridge Approach. El puente está visible desde la Torre — no se puede perder.</div>
+          <a class="ticket-link" href="https://maps.google.com/?q=Tower+Bridge+London+SE1+2UP" target="_blank">Cómo llegar →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">1:15PM — Tube a Westminster</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde Tower Bridge caminar 5 minutos de regreso a Tower Hill. Tomar District o Circle dirección oeste. Bajar en Westminster — 4 paradas, ~12 minutos.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">7:00PM — Regreso al hotel</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde Covent Garden tomar Piccadilly hasta Tower Hill — 15 min, cambio en Earl's Court o directo. O Uber ~20 min, ~£12.</div>
         </div>
       </div>
       <div class="activity-card" onclick="toggleActivity(this)">
@@ -841,6 +901,59 @@
         </div>
       </div>
     </div>
+
+    <div class="day-label">Day 3 — Fri Jun 19 · Notting Hill + Soho</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">9:30AM — Traslado a Notting Hill</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde el hotel caminar 2 minutos hasta Tower Hill station. Tomar District dirección oeste hasta Notting Hill Gate — 30 minutos directo, sin cambios. Granger & Co está a 5 minutos caminando de la estación.</div>
+          <a class="ticket-link" href="https://maps.google.com/?q=Granger+and+Co+Notting+Hill+London" target="_blank">Cómo llegar →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">7:00PM — Regreso al hotel desde Soho</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde Soho caminar 5 minutos hasta Tottenham Court Road station (línea Central). Tomar dirección este hasta Bank, cambiar a Circle o District hasta Tower Hill — 20 minutos total. O Uber desde Soho ~£15, 20-25 minutos.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-label">Day 4 — Sat Jun 20 · Breakfast + Westminster + Camden</div>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">10:00AM — Desayuno en el barrio</div>
+          <div class="activity-meta"><span class="tag tag-free">Free</span> Buscar café cerca del hotel — hay varias opciones en St Katharine's Way y alrededor de Tower Bridge. Sin necesidad de tomar metro para el desayuno.</div>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">11:00AM — Westminster Abbey</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde el hotel tomar Tower Hill station (2 min caminando). Línea District o Circle dirección oeste hasta St James's Park o Victoria — 15 minutos. Westminster Abbey está a 5 minutos caminando de la estación.</div>
+          <a class="ticket-link" href="https://maps.google.com/?q=Westminster+Abbey+London+SW1P+3PA" target="_blank">Cómo llegar →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">2:30PM — Camden Market</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde Westminster tomar Jubilee a London Bridge, cambiar a Northern dirección norte hasta Camden Town — 25 minutos total.</div>
+          <a class="ticket-link" href="https://maps.google.com/?q=Camden+Market+London+NW1+8AF" target="_blank">Cómo llegar →</a>
+        </div>
+      </div>
+      <div class="activity-card" onclick="toggleActivity(this)">
+        <div class="check-circle"></div>
+        <div class="activity-content">
+          <div class="activity-name">7:00PM — Regreso al hotel desde Camden</div>
+          <div class="activity-meta"><span class="tag tag-transport">Transporte</span> Desde Camden Town tomar Northern sur hasta Bank, cambiar a Circle o District hasta Tower Hill — 25 minutos total. O Uber desde Camden ~£20, 30 minutos dependiendo del tráfico.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- PARIS -->
@@ -854,7 +967,7 @@
       <strong>Food rule:</strong> Walk at least 5 minutes from any landmark before sitting down to eat. Best budget meals: Bouillon Chartier (full French dinner under €20/person). Best café experience: grab a croissant standing at a counter — never sit at a table near a tourist spot.
     </div>
 
-    <div class="day-label">Day 3 — Fri Jun 19 · Arrival from London</div>
+    <div class="day-label">Day 5 — Fri Jun 19 · Arrival from London</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -872,7 +985,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 4 — Sat Jun 20 · The Icons</div>
+    <div class="day-label">Day 6 — Sat Jun 20 · The Icons</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -914,7 +1027,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 5 — Sun Jun 21 · History + Neighborhoods</div>
+    <div class="day-label">Day 7 — Sun Jun 21 · History + Neighborhoods</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -955,7 +1068,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 6 — Mon Jun 22 · Morning then fly to Venice</div>
+    <div class="day-label">Day 8 — Mon Jun 22 · Morning then fly to Venice</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -986,7 +1099,7 @@
       <strong>The golden rule:</strong> Never eat within 200m of St Mark's Square. Walk 5 minutes in any direction — prices drop 40%, quality doubles. As overnight guests you are EXEMPT from the €5 day-tripper entry fee — keep your hotel booking on your phone as proof.
     </div>
 
-    <div class="day-label">Day 7 — Mon Jun 22 · Arrival from Paris</div>
+    <div class="day-label">Day 9 — Mon Jun 22 · Arrival from Paris</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1004,7 +1117,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 8 — Tue Jun 23 · Main Attractions</div>
+    <div class="day-label">Day 10 — Tue Jun 23 · Main Attractions</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1052,7 +1165,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 9 — Wed Jun 24 · Islands of Murano & Burano</div>
+    <div class="day-label">Day 11 — Wed Jun 24 · Islands of Murano & Burano</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1091,7 +1204,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 10 — Thu Jun 25 · Morning in Venice → Train to Florence</div>
+    <div class="day-label">Day 12 — Thu Jun 25 · Morning in Venice → Train to Florence</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1121,7 +1234,7 @@
       <strong>Must do today:</strong> Book the Uffizi and Accademia the moment you get tickets. June sells out weeks ahead. Both are essential — the David is one of the most moving things you'll ever see. Also: breakfast in Italy = cappuccino + cornetto standing at a bar, €2-3 total. Never sit down near a landmark for breakfast.
     </div>
 
-    <div class="day-label">Day 10 cont'd — Thu Jun 25 · Arrival from Venice</div>
+    <div class="day-label">Day 12 cont'd — Thu Jun 25 · Arrival from Venice</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1146,7 +1259,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 11 — Fri Jun 26 · The Big Two</div>
+    <div class="day-label">Day 13 — Fri Jun 26 · The Big Two</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1195,7 +1308,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 12 — Sat Jun 27 · Morning in Florence → Train to Rome</div>
+    <div class="day-label">Day 14 — Sat Jun 27 · Morning in Florence → Train to Rome</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1225,7 +1338,7 @@
       <strong>The three pastas of Rome:</strong> Cacio e pepe, carbonara, amatriciana. Eat all three before you leave. The rule: walk at least 5-10 minutes from the Colosseum, Trevi, Pantheon, and Vatican before eating — tourist-adjacent restaurants are overpriced and mediocre. Trastevere neighborhood = best food in Rome.
     </div>
 
-    <div class="day-label">Day 12 cont'd — Sat Jun 27 · Arrival from Florence</div>
+    <div class="day-label">Day 14 cont'd — Sat Jun 27 · Arrival from Florence</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1258,7 +1371,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 13 — Sun Jun 28 · Ancient Rome</div>
+    <div class="day-label">Day 15 — Sun Jun 28 · Ancient Rome</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1298,7 +1411,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 14 — Mon Jun 29 · Vatican Day (Last Full Day)</div>
+    <div class="day-label">Day 16 — Mon Jun 29 · Vatican Day (Last Full Day)</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
@@ -1353,7 +1466,7 @@
       </div>
     </div>
 
-    <div class="day-label">Day 15 — Tue Jun 30 · Departure</div>
+    <div class="day-label">Day 17 — Tue Jun 30 · Departure</div>
     <div class="activities-grid">
       <div class="activity-card" onclick="toggleActivity(this)">
         <div class="check-circle"></div>
